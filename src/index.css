@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-app text-ink antialiased dark:bg-night dark:text-slate-100;
+    font-family: 'Manrope', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  }
+  :focus-visible {
+    outline: 2px solid #635bff;
+    outline-offset: 2px;
+  }
+  .dark :focus-visible {
+    outline-color: #a5a0ff;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-white shadow-soft dark:border-slate-800 dark:bg-slate-900;
+  }
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl px-4 text-sm font-semibold transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-sm {
+    @apply min-h-[36px] px-3 text-xs;
+  }
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark;
+  }
+  .btn-secondary {
+    @apply border border-slate-300 bg-white text-ink hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700;
+  }
+  .btn-ghost {
+    @apply text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800;
+  }
+  .btn-danger {
+    @apply bg-danger text-white hover:bg-red-600;
+  }
+  .field-label {
+    @apply mb-1.5 block text-sm font-semibold text-ink dark:text-slate-100;
+  }
+  .field-input {
+    @apply block min-h-[44px] w-full rounded-xl border border-slate-300 bg-white px-3 text-sm text-ink placeholder:text-slate-400 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 aria-[invalid=true]:border-danger;
+  }
+  .field-error {
+    @apply mt-1.5 flex items-start gap-1.5 text-sm text-red-600 dark:text-red-400;
+  }
+  .field-hint {
+    @apply mt-1.5 text-sm text-muted dark:text-slate-400;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold;
+  }
+  .badge-success {
+    @apply bg-green-100 text-green-800 dark:bg-green-500/15 dark:text-green-300;
+  }
+  .badge-warning {
+    @apply bg-amber-100 text-amber-800 dark:bg-amber-500/15 dark:text-amber-300;
+  }
+  .badge-danger {
+    @apply bg-red-100 text-red-800 dark:bg-red-500/15 dark:text-red-300;
+  }
+  .badge-neutral {
+    @apply bg-slate-100 text-slate-700 dark:bg-slate-700/50 dark:text-slate-200;
+  }
+  .badge-demo {
+    @apply bg-primary-soft text-primary-dark dark:bg-primary/20 dark:text-indigo-200;
+  }
+  .page-title {
+    @apply text-2xl font-extrabold tracking-tight sm:text-3xl;
+  }
+  .muted {
+    @apply text-muted dark:text-slate-400;
+  }
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-white;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
